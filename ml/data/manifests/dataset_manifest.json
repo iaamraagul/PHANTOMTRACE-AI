@@ -1,0 +1,38 @@
+{
+  "datasets": [
+    {
+      "dataset": "PhiUSIIL Phishing URL (Website)",
+      "uci_id": 967,
+      "source": "https://archive.ics.uci.edu/dataset/967/phiusiil+phishing+url+dataset",
+      "path": "C:\\Users\\Raagul\\Project_phishing\\ml\\data\\raw\\phiusiil\\phiusiil_raw.csv",
+      "sha256": "c03cfe13d32a600eb58404f9964c8a3b061b75f705364195d75ff0ef53b712f2",
+      "rows": 235795,
+      "columns": 55,
+      "label_semantics": "1=legitimate, 0=phishing"
+    },
+    {
+      "dataset": "UCI Phishing Websites",
+      "uci_id": 327,
+      "source": "https://archive.ics.uci.edu/dataset/327/phishing",
+      "path": "C:\\Users\\Raagul\\Project_phishing\\ml\\data\\raw\\uci_phishing\\uci_phishing_raw.csv",
+      "sha256": "38c72ea368090468bc8f0b1bcf4d40d017ac3a34ba4be88f4223057fe0d7ba06",
+      "rows": 11055,
+      "columns": 31,
+      "label_semantics": "classic benchmark labels as provided by UCI; benchmark only, not concatenated into production training"
+    }
+  ],
+  "live_intelligence": {
+    "phishtank": {
+      "source": "https://www.phishtank.net/developer_info.php",
+      "api_info": "https://www.phishtank.net/api_info.php",
+      "env": "PHISHTANK_API_KEY",
+      "status": "credential-gated optional enrichment"
+    },
+    "urlhaus": {
+      "source": "https://urlhaus.abuse.ch/",
+      "api_info": "https://urlhaus.abuse.ch/api/",
+      "env": "URLHAUS_ENABLED",
+      "status": "configuration-gated optional enrichment"
+    }
+  }
+}

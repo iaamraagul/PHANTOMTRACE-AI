@@ -1,0 +1,73 @@
+{
+  "model": "calibrated_hist_gradient_boosting",
+  "accuracy": 0.9943914114947738,
+  "precision": 0.996794229613304,
+  "recall": 0.9900497512437811,
+  "f1": 0.9934105431309904,
+  "roc_auc": 0.9981709572236372,
+  "pr_auc": 0.9982294779340648,
+  "confusion_matrix": {
+    "tn": 20180,
+    "fp": 48,
+    "fn": 150,
+    "tp": 14925
+  },
+  "false_positive_rate": 0.002372948388372553,
+  "false_negative_rate": 0.009950248756218905,
+  "candidate_validation_metrics": [
+    {
+      "model": "logistic_regression",
+      "accuracy": 0.9859785287369346,
+      "precision": 0.9901176470588235,
+      "recall": 0.9769169540992305,
+      "f1": 0.9834730059096525,
+      "roc_auc": 0.9937319673234394,
+      "pr_auc": 0.995428516246315,
+      "confusion_matrix": {
+        "tn": 20080,
+        "fp": 147,
+        "fn": 348,
+        "tp": 14728
+      },
+      "false_positive_rate": 0.007267513719286103,
+      "false_negative_rate": 0.023083045900769435
+    },
+    {
+      "model": "random_forest",
+      "accuracy": 0.9929467750616094,
+      "precision": 0.9972499832316051,
+      "recall": 0.9862032369328735,
+      "f1": 0.9916958479239619,
+      "roc_auc": 0.9976722494329845,
+      "pr_auc": 0.9982060993632361,
+      "confusion_matrix": {
+        "tn": 20186,
+        "fp": 41,
+        "fn": 208,
+        "tp": 14868
+      },
+      "false_positive_rate": 0.0020269936223859196,
+      "false_negative_rate": 0.01379676306712656
+    },
+    {
+      "model": "hist_gradient_boosting",
+      "accuracy": 0.9944480639039175,
+      "precision": 0.9978586723768736,
+      "recall": 0.989121782966304,
+      "f1": 0.993471019320453,
+      "roc_auc": 0.9978508111102953,
+      "pr_auc": 0.9982965992002025,
+      "confusion_matrix": {
+        "tn": 20195,
+        "fp": 32,
+        "fn": 164,
+        "tp": 14912
+      },
+      "false_positive_rate": 0.001582043802837791,
+      "false_negative_rate": 0.010878217033695941
+    }
+  ],
+  "positive_label": "phishing",
+  "source_label_semantics": "PhiUSIIL: 1=legitimate, 0=phishing; training converts phishing to positive class 1.",
+  "seed": 42
+}

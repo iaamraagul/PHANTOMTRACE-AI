@@ -1,0 +1,8 @@
+{
+  "seed": 42,
+  "train_rows": 164759,
+  "validation_rows": 35305,
+  "test_rows": 35306,
+  "label_semantics": "1=legitimate, 0=phishing",
+  "leakage_note": "Duplicate URL strings are removed before stratified splitting."
+}

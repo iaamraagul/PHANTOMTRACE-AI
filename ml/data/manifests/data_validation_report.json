@@ -1,0 +1,18 @@
+{
+  "dataset": "phiusiil",
+  "path": "C:\\Users\\Raagul\\Project_phishing\\ml\\data\\raw\\phiusiil\\phiusiil_raw.csv",
+  "rows": 235795,
+  "columns": 55,
+  "missing_values": 0,
+  "duplicate_rows": 0,
+  "duplicate_urls": 425,
+  "invalid_urls": 0,
+  "infinite_values": 0,
+  "class_distribution": {
+    "1": 134850,
+    "0": 100945
+  },
+  "warnings": [],
+  "errors": [],
+  "status": "PASS"
+}
