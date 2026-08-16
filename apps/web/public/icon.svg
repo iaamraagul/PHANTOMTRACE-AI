@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Quantra">
+  <rect width="128" height="128" rx="32" fill="#020603"/>
+  <circle cx="64" cy="64" r="42" fill="#18e117"/>
+  <path d="M83.5 89.5 72.2 78.1a23 23 0 1 1 8.1-8.2l11.4 11.4-8.2 8.2ZM49 59.8a14.8 14.8 0 1 0 29.6 0 14.8 14.8 0 0 0-29.6 0Z" fill="#020603"/>
+  <path d="M35 87V67h10v20H35Zm16 0V57h10v30H51Zm16 0V48h10v39H67Z" fill="#020603" opacity=".7"/>
+</svg>

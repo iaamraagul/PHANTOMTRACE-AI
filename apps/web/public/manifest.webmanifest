@@ -1,0 +1,16 @@
+{
+  "name": "PHANTOMTRACE AI",
+  "short_name": "Phantomtrace",
+  "description": "AI-powered phishing detection and explainable threat intelligence.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#111211",
+  "theme_color": "#111211",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
