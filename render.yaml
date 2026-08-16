@@ -12,7 +12,7 @@ services:
       - key: DATABASE_URL
         value: sqlite:///./data/phantomtrace.db
       - key: CORS_ORIGINS
-        sync: false
+        value: https://phantomtrace-ai.vercel.app
       - key: SECRET_KEY
         generateValue: true
       - key: STORE_RAW_URLS

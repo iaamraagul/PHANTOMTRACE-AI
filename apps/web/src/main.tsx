@@ -29,9 +29,12 @@ type Scan = {
 type Auth = { token: string; email: string } | null;
 
 function localApiCandidates(): string[] {
-  const configured = import.meta.env.VITE_API_URL;
+  const configured = normalizeApiBase(import.meta.env.VITE_API_URL);
   const browserHost = typeof window === 'undefined' ? 'localhost' : window.location.hostname;
   const pairedHost = browserHost === '127.0.0.1' ? 'localhost' : '127.0.0.1';
+  if (configured && import.meta.env.PROD) {
+    return [configured];
+  }
   return Array.from(new Set([
     '',
     configured,
@@ -89,6 +92,10 @@ const scanStages = [
   'Explainable verdict',
 ];
 
+function normalizeApiBase(value: string | undefined): string {
+  return (value || '').trim().replace(/\/+$/, '');
+}
+
 const threatRegions = [
   { city: 'Singapore', signal: 'Credential lure', volume: 42 },
   { city: 'Frankfurt', signal: 'Payment impersonation', volume: 31 },
@@ -107,8 +114,9 @@ async function request<T>(path: string, options: RequestInit = {}, token?: strin
   if (token) headers.set('Authorization', `Bearer ${token}`);
   const failures: string[] = [];
   for (const api of apiCandidates) {
+    const url = `${api}${path}`;
     try {
-      const response = await fetch(api + path, { ...options, headers });
+      const response = await fetch(url, { ...options, headers });
       const contentType = response.headers.get('content-type') || '';
       if (!contentType.includes('application/json')) {
         throw new Error('API did not return JSON');
@@ -118,7 +126,7 @@ async function request<T>(path: string, options: RequestInit = {}, token?: strin
       return payload as T;
     } catch (err) {
       const message = err instanceof Error ? err.message : 'connection failed';
-      failures.push(`${api}: ${message}`);
+      failures.push(`${url}: ${message}`);
       const retryable = message === 'Failed to fetch'
         || message.includes('NetworkError')
         || message.includes('Load failed')

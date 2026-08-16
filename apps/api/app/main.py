@@ -236,6 +236,15 @@ def init_db() -> None:
         con.execute("CREATE INDEX IF NOT EXISTS scans_created_at ON scans(created_at DESC)")
 
 
+def normalize_origin(value: str) -> str:
+    return value.strip().rstrip("/")
+
+
+def configured_cors_origins(default_origins: str) -> list[str]:
+    raw_origins = os.getenv("CORS_ORIGINS", default_origins)
+    return [origin for origin in (normalize_origin(x) for x in raw_origins.split(",")) if origin]
+
+
 def validate_runtime_config(origins: list[str]) -> None:
     if ENVIRONMENT != "production":
         return
@@ -985,7 +994,7 @@ default_origins = ",".join([
     "http://localhost:4173",
     "http://127.0.0.1:4173",
 ])
-origins = [x.strip() for x in os.getenv("CORS_ORIGINS", default_origins).split(",") if x.strip()]
+origins = configured_cors_origins(default_origins)
 validate_runtime_config(origins)
 app.add_middleware(CORSMiddleware, allow_origins=origins, allow_credentials=False, allow_methods=["GET", "POST", "DELETE"], allow_headers=["Content-Type", "Authorization"])
 if (FRONTEND_DIST / "assets").exists():

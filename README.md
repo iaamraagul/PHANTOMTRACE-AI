@@ -176,11 +176,13 @@ For the current local one-link setup, the FastAPI backend serves the built front
 
 1. Open Vercel and import this GitHub repository.
 2. Use the root project directory. The root `vercel.json` defines the frontend install, build, output directory, and SPA rewrite.
-3. Add this environment variable before deploying:
+3. Add only this frontend environment variable before deploying:
 
 ```text
 VITE_API_URL=https://your-backend-host.example.com
 ```
+
+Do not add backend-only variables such as `DATABASE_URL`, `SECRET_KEY`, `CORS_ORIGINS`, `PHISHTANK_API_KEY`, or `URLHAUS_ENABLED` to Vercel. Keep those on Render.
 
 4. Deploy the project.
 5. After Vercel gives you a public URL, add that exact URL to the backend `CORS_ORIGINS` value and redeploy/restart the backend.
