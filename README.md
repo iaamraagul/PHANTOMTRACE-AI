@@ -164,6 +164,29 @@ This repository is Vercel-ready for the frontend, but not as a single full-stack
 
 For the current local one-link setup, the FastAPI backend serves the built frontend from `apps/web/dist` after you run the frontend build. For GitHub and deployment, keep `dist/` treated as a generated build artifact and rebuild it during deployment.
 
+### Render API Deployment
+
+1. Open Render and create a new Blueprint from this GitHub repository.
+2. Render will read `render.yaml` and create the `phantomtrace-api` web service.
+3. After the service is created, set `CORS_ORIGINS` to your final Vercel URL, for example `https://phantomtrace-ai.vercel.app`.
+4. Keep `ENVIRONMENT=production`, `STORE_RAW_URLS=false`, and `ENABLE_SHAP_EXPLANATIONS=false`.
+5. Use the deployed backend URL as your frontend `VITE_API_URL`, for example `https://phantomtrace-api.onrender.com`.
+
+### Vercel Frontend Deployment
+
+1. Open Vercel and import this GitHub repository.
+2. Use the root project directory. The root `vercel.json` defines the frontend install, build, output directory, and SPA rewrite.
+3. Add this environment variable before deploying:
+
+```text
+VITE_API_URL=https://your-backend-host.example.com
+```
+
+4. Deploy the project.
+5. After Vercel gives you a public URL, add that exact URL to the backend `CORS_ORIGINS` value and redeploy/restart the backend.
+
+The frontend and backend are separate services in production. The frontend calls the backend through `VITE_API_URL`.
+
 ## Verification
 
 ```powershell

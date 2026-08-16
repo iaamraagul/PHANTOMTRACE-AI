@@ -12,4 +12,8 @@ ml/data/raw/*
 !ml/data/raw/.gitkeep
 ml/models/production/*
 !ml/models/production/.gitkeep
+!ml/models/production/feature_schema.json
+!ml/models/production/model_metadata.json
+!ml/models/production/model.joblib
+!ml/models/production/shap_background.joblib
 *.db
