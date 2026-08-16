@@ -1,0 +1,15 @@
+.env
+.codex/
+__pycache__/
+.pytest_cache/
+.venv/
+node_modules/
+dist/
+.next/
+*.log
+*.tsbuildinfo
+ml/data/raw/*
+!ml/data/raw/.gitkeep
+ml/models/production/*
+!ml/models/production/.gitkeep
+*.db
