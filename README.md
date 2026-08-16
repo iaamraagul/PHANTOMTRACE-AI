@@ -6,6 +6,17 @@ PHANTOMTRACE AI is a full-stack URL phishing-analysis workstation. It accepts a 
 
 The backend never opens submitted URLs, follows redirects, crawls pages, or executes remote JavaScript.
 
+## Preview
+
+<p align="center">
+  <img src="docs/images/phantomtrace-intro.png" alt="PHANTOMTRACE AI intro screen" width="82%">
+</p>
+
+<p align="center">
+  <img src="docs/images/phantomtrace-scanner.png" alt="PHANTOMTRACE AI scanner workstation" width="49%">
+  <img src="docs/images/phantomtrace-evidence.png" alt="PHANTOMTRACE AI evidence dashboard" width="49%">
+</p>
+
 ## Stack
 
 - API: FastAPI, Pydantic, SQLite local persistence, SlowAPI rate limiting
@@ -13,12 +24,48 @@ The backend never opens submitted URLs, follows redirects, crawls pages, or exec
 - Web: React 19.2, TypeScript, Vite 8.2, Three.js 0.185, React Three Fiber 9.7
 - Ops: Docker Compose, Nginx frontend image, GitHub Actions CI
 
+## Project Structure
+
+```text
+.
+|-- apps/
+|   |-- api/                 FastAPI backend, Dockerfile, and API tests
+|   `-- web/                 React + Vite frontend and static assets
+|-- data/                    Request schemas and sample safe URLs
+|-- docs/                    Architecture, ML notes, API docs, and README images
+|-- infra/                   Infrastructure-oriented project assets
+|-- ml/                      Data manifests, notebooks, model artifacts, and reports
+|-- scripts/                 Data download, preprocessing, training, and smoke tests
+|-- tests/                   Shared test area
+|-- docker-compose.yml       Local full-stack Compose setup
+|-- render.yaml              Render backend deployment blueprint
+|-- vercel.json              Vercel frontend deployment config
+`-- requirements.txt         Root Python dependency list for backend/ML tooling
+```
+
+## Requirements
+
+- Python 3.11
+- Node.js 20 or newer
+- npm
+- Docker Desktop, optional for Compose/local container runs
+- Git
+
+Python dependencies are listed in both:
+
+- `requirements.txt`
+- `apps/api/requirements.txt`
+
+Frontend dependencies are listed in:
+
+- `apps/web/package.json`
+
 ## Quick Start
 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
-pip install -r apps/api/requirements.txt
+pip install -r requirements.txt
 uvicorn app.main:app --app-dir apps/api --reload
 ```
 
